@@ -1,8 +1,65 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "crud": {
+      "root": "apps/crud",
+      "sourceRoot": "apps/crud/src",
+      "projectType": "application",
+      "prefix": "crud",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/crud",
+            "main": "apps/crud/src/main.ts",
+            "tsConfig": "apps/crud/tsconfig.app.json",
+            "assets": ["apps/crud/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/crud/src/environments/environment.ts",
+                  "with": "apps/crud/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "crud:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/crud/tsconfig.app.json",
+              "apps/crud/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/crud/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/crud/jest.config.js",
+            "tsConfig": "apps/crud/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/express"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -62,5 +119,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "crud"
 }
