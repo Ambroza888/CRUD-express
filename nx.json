@@ -27,6 +27,12 @@
     },
     "user-utilities-sql-models": {
       "tags": []
+    },
+    "database": {
+      "tags": []
+    },
+    "classes": {
+      "tags": []
     }
   }
 }

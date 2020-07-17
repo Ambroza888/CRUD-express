@@ -1,12 +1,14 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import * as express from 'express';
 import { VesoRouter } from './_routers/router';
+import { db } from '@crud/database';
+import { CreateTables } from '@crud/database'
 
 const app = express();
+
+db.authenticate()
+  .then(() => console.log('Connected to Database...'))
+  .catch(err => console.log('Error: ', err));
+// CreateTables();
 
 app.use(express.json());
 app.use(VesoRouter);

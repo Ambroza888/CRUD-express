@@ -86,6 +86,60 @@
           }
         }
       }
+    },
+    "database": {
+      "root": "libs/database",
+      "sourceRoot": "libs/database/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/database/tsconfig.lib.json",
+              "libs/database/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/database/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/database/jest.config.js",
+            "tsConfig": "libs/database/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "classes": {
+      "root": "libs/classes",
+      "sourceRoot": "libs/classes/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/classes/tsconfig.lib.json",
+              "libs/classes/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/classes/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/classes/jest.config.js",
+            "tsConfig": "libs/classes/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

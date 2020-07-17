@@ -18,7 +18,9 @@
     "paths": {
       "@crud/user/utilities/sql-models": [
         "libs/user/utilities/sql-models/src/index.ts"
-      ]
+      ],
+      "@crud/database": ["libs/database/src/index.ts"],
+      "@crud/classes": ["libs/classes/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
