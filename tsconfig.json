@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@crud/user/utilities/sql-models": [
+        "libs/user/utilities/sql-models/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

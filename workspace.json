@@ -56,6 +56,36 @@
           }
         }
       }
+    },
+    "user-utilities-sql-models": {
+      "root": "libs/user/utilities/sql-models",
+      "sourceRoot": "libs/user/utilities/sql-models/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/user/utilities/sql-models/tsconfig.lib.json",
+              "libs/user/utilities/sql-models/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/user/utilities/sql-models/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/user/utilities/sql-models/jest.config.js",
+            "tsConfig": "libs/user/utilities/sql-models/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
