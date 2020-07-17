@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { SayHello } from '../src/handlers/SayHello'
+import { SayHello } from '../_handlers/SayHello'
 
 const router: Router = Router({mergeParams: true});
 

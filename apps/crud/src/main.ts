@@ -4,16 +4,14 @@
  */
 
 import * as express from 'express';
-import { VesoRouter } from './router';
+import { VesoRouter } from './_routers/router';
 
 const app = express();
 
 app.use(express.json());
 app.use(VesoRouter);
 
-// app.get('/api', (req, res) => {
-//   res.send({ message: 'Welcome to CRUD!' });
-// });
+
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
